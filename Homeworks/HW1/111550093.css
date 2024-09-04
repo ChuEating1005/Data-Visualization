@@ -1,0 +1,58 @@
+body {
+    text-align: center;
+}
+
+nav{
+    font-size: 40px;
+    padding: 20px;
+    background-color: #d2eae7;
+}
+
+#my_dataviz{
+    padding: 30px;
+}
+
+.grid-containter{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 100px;
+    column-gap: 30px;
+}
+
+.x-asis{
+    grid-column: 1/2;
+}
+
+.y-asis{
+    grid-column: 1/2
+}
+
+fieldset{
+    width: 250px;
+    font-family: sans-serif;
+    border: 3px solid #1F497D;
+    background: #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+fieldset legend {
+    text-align: left;
+    background: #1F497D;
+    color: #fff;
+    padding: 5px 10px ;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 3px #ddd;
+    margin-left: 0px;
+}
+
+fieldset#x{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+fieldset#y{
+    margin-left: 0;
+    margin-right: auto;
+}

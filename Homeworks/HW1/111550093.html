@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="./111550093.js"></script>
+    <link rel="stylesheet" href="./111550093.css">
+    </html>
+    <title>HW 1 - Scatter Plots</title>
+</head>
+<body>
+    <nav>HW 1 - Scatter Plots</nav>
+    <div id="my_dataviz"></div>
+    <div class="grid-containter">
+        <div class="x-axis">
+            <fieldset id="x">
+                <legend>X Axis</legend>
+                <label>Select X Axis:</label>
+                <select id="x_label" onchange="updateXasis()">
+                    <option value="sepal length">Sepal Length</option>
+                    <option value="sepal width">Sepal Width</option>
+                    <option value="petal length">Petal Length</option>
+                    <option value="petal width">Petal Width</option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="y-axis">
+            <fieldset id="y">
+                <legend>Y Axis</legend>
+                <label>Select Y Axis:</label>
+                <select id="y_label" onchange="updateYasis()">
+                    <option value="sepal length">Sepal Length</option>
+                    <option value="sepal width">Sepal Width</option>
+                    <option value="petal length">Petal Length</option>
+                    <option value="petal width">Petal Width</option>
+                </select>
+            </fieldset>
+        </div>
+    </div>
+    
+</body>
