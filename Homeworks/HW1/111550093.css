@@ -12,11 +12,23 @@ nav{
     padding: 30px;
 }
 
-.grid-containter{
+.grid-containter1{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 100px;
     column-gap: 30px;
+    padding-bottom: 100px;
+}
+
+footer{
+    display: grid;
+    bottom: 0;
+    padding: 30px;
+    border-top: 1.5px solid #babcbf;
+    color: gray;
+    font-size: 15px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 20px;
 }
 
 .x-asis{
@@ -27,23 +39,37 @@ nav{
     grid-column: 1/2
 }
 
+.box1{
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.box2{
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+.box3{
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
 fieldset{
     width: 250px;
     font-family: sans-serif;
-    border: 3px solid #1F497D;
-    background: #ddd;
+    border: 2px solid #1b263b;
+    background: #ffffff;
     border-radius: 5px;
     padding: 15px;
 }
 
 fieldset legend {
     text-align: left;
-    background: #1F497D;
+    background: #1b263b;
     color: #fff;
     padding: 5px 10px ;
     font-size: 18px;
     border-radius: 5px;
-    box-shadow: 0 0 0 3px #ddd;
     margin-left: 0px;
 }
 

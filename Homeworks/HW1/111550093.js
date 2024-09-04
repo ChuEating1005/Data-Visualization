@@ -8,20 +8,20 @@ d3.csv("./iris.csv", function(csvdata){
     scatter_plot(data)
 })
 
-function updateXasis(){
-    const selectedXasis = document.getElementById("x_label").value;
-    x_label = selectedXasis
+function updateXaxis(){
+    const selectedXaxis = document.getElementById("x_label").value;
+    x_label = selectedXaxis
     scatter_plot()
 }
 
-function updateYasis(){
-    const selectedYasis = document.getElementById("y_label").value;
-    y_label = selectedYasis
+function updateYaxis(){
+    const selectedYaxis = document.getElementById("y_label").value;
+    y_label = selectedYaxis
     scatter_plot()
 }
 
 function scatter_plot(){
-    var margin = {top: 30, right: 90, bottom: 90, left: 90},
+    var margin = {top: 30, right: 130, bottom: 90, left: 130},
     width = 800 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
     
@@ -72,51 +72,73 @@ function scatter_plot(){
 
     var color = d3.scaleOrdinal()
         .domain(["Iris-setosa", "Iris-versicolor", "Iris-virginica"])
-        .range(["#ff000080", "#00ff0080", "#0000ff80"])
+        .range(["#e63946", "#588157", "#457b9d"])
 
     var raddius = d3.scaleOrdinal()
         .domain(["Iris-setosa", "Iris-versicolor", "Iris-virginica"])
         .range([5, 6, 7])
 
-    /* Add legend */
+    // Add X Label
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width + 10)
+        .attr("y", height + margin.top + 10)
+        .text(x_label)
+        .style("font-size", "17px")
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", -40)
+        .attr("y", 20)
+        .text(y_label)
+        .style("font-size", "17px")
+    // svg.append("text")
+    //     .attr("text-anchor", "end")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("x", 0)
+    //     .attr("y", -margin.left + 50)
+    //     .text(y_label)
+    //     .style("font-size", "17px")
+    
+
+    // Add legend
     // Setosa
     svg.append("circle")
         .attr("cx", width / 2 - 150)
         .attr("cy", height + margin.top + 45)
         .attr("r", 5)
-        .style("fill", "#ff000080")
+        .style("fill", "#e63946")
     svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2 - 115)
         .attr("y", height + margin.top + 50)
         .text("Setosa")
-        .style("fill", "#ff000080")
+        .style("fill", "#e63946")
         .style("font-size", "20px")
     // Versicolor
     svg.append("circle")
         .attr("cx", width / 2 - 50)
         .attr("cy", height + margin.top + 45)
         .attr("r", 6)
-        .style("fill", "#00ff0080")
+        .style("fill", "#588157")
     svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
         .attr("y", height + margin.top + 50)
         .text("Versicolor")
-        .style("fill", "#00ff0080")
+        .style("fill", "#588157")
         .style("font-size", "20px")
     // Virginica
     svg.append("circle")
         .attr("cx", width / 2 + 70)
         .attr("cy", height + margin.top + 45)
         .attr("r", 7)
-        .style("fill", "#0000ff80")
+        .style("fill", "#457b9d")
     svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width / 2 + 115)
         .attr("y", height + margin.top + 50)
-        .text("virginica")
-        .style("fill", "#0000ff80")
+        .text("Virginica")
+        .style("fill", "#457b9d")
         .style("font-size", "20px")
     
     // Add dots
