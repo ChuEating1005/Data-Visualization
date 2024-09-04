@@ -1,4 +1,4 @@
-# Data Visualization and Visual Analytics
+# Data-Visualization
 - Instructor: 王昱舜
 - Sememster: 2024 Fall
 ## Homework
