@@ -3,7 +3,7 @@ let y_label = "sepal width"
 let data = [];
 
 //Read the data
-d3.csv("./iris.csv", function(csvdata){
+d3.csv("http://vis.lab.djosix.com:2024/data/iris.csv", function(csvdata){
     data = csvdata
     scatter_plot(data)
 })
