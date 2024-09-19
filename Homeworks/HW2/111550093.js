@@ -36,7 +36,7 @@ d3.csv("./iris.csv", function(data) {
             if(data[i][y_label] > y_max[y_label]) {
                 y_max[y_label] = data[i][y_label]
             }
-            if(data[i][y_label] < y_min[y_label]) {
+            if(data[i][y_label] < y_min[y_label] && data[i][y_label] != 0) {
                 y_min[y_label] = data[i][y_label]
             }
         }
