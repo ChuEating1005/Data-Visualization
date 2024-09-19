@@ -45,3 +45,7 @@ footer{
     grid-column-start: 5;
     grid-column-end: 6;
 }
+
+p {
+    color: gray;
+}

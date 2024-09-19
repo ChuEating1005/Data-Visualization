@@ -5,7 +5,7 @@
 d3.csv("./iris.csv", function(data) {
 
     // set the dimensions and margins of the graph
-    var margin = {top: 30, right: 100, bottom: 90, left: 100},
+    var margin = {top: 30, right: 100, bottom: 30, left: 100},
     width = 1000 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
@@ -53,9 +53,14 @@ d3.csv("./iris.csv", function(data) {
     }
 
     // Build the X scale -> it find the best position for each Y axis
-    x = d3.scalePoint()
+    var x = {}
+    init_x = d3.scalePoint()
         .range([0, width])
         .domain(dimensions);
+    for (i in dimensions) {
+        name = dimensions[i];
+        x[name] = init_x(name);
+    }
 
     // Highlight the specie that is hovered
     var highlight = function(d){
@@ -84,12 +89,11 @@ d3.csv("./iris.csv", function(data) {
 
     // The path function take a row of the csv as input, and return x and y coordinates of the line to draw for this raw.
     function path(d) {
-        return d3.line()(dimensions.map(function(p) { return [x(p), y[p](d[p])]; }));
+        return d3.line()(dimensions.map(function(p) { return [x[p], y[p](d[p])]; }));
     }
 
     // Draw the lines
-    svg
-        .selectAll("myPath")
+    tmp = svg.selectAll("myPath")
         .data(data)
         .enter()
         .append("path")
@@ -102,17 +106,52 @@ d3.csv("./iris.csv", function(data) {
         .on("mouseleave", doNotHighlight )
 
     // Draw the axis:
-    svg.selectAll("myAxis")
+    var axis = []
+    var id = []
+    var tmp2 = svg.selectAll("myAxis")
         // For each dimension of the dataset I add a 'g' element:
         .data(dimensions).enter()
         .append("g")
         .attr("class", "axis")
         // I translate this element to its right position on the x axis
-        .attr("transform", function(d) { return "translate(" + x(d) + ")"; })
+        .attr("transform", function(d) { return "translate(" + x[d] + ")"; })
         // And I build the axis with the call function
-        .each(function(d) { d3.select(this).call(d3.axisLeft().ticks(5).scale(y[d])); })
-        // Add axis title
-        .append("text")
+        .each(function(d, index) { 
+            axis[index] = d3.select(this).call(d3.axisLeft().ticks(6).scale(y[d]));
+            id[index] = index;
+            axis[index].call(d3.drag()
+                .on("start", function (d) { })
+                .on("drag", function (d) {
+                    // Update the position of the axis and line, clip the axis to the width of the plot
+                    x[d] = Math.min(Math.max(d3.event.x, 0), 800);
+                    axis[index].attr("transform", function (d) { return "translate(" + x[d] + ")"; })
+                    for (var i = 0; i < 4; i++) {
+                        for (var j = i + 1; j < 4; j++) {
+                            if (x[dimensions[i]] >= x[dimensions[j]]) {
+                                if (d == dimensions[i]) {
+                                    x[dimensions[j]] = 800 / 3 * i;
+                                    axis[id[j]].attr("transform", function (d) { return "translate(" + x[dimensions[j]] + ")"; })
+                                }
+                                if (d == dimensions[j]) {
+                                    x[dimensions[i]] = 800 / 3 * j;
+                                    axis[id[i]].attr("transform", function (d) { return "translate(" + x[dimensions[i]] + ")"; })
+                                }
+                                swaptmp = dimensions[i];
+                                dimensions[i] = dimensions[j];
+                                dimensions[j] = swaptmp;
+                                swaptmp = id[i];
+                                id[i] = id[j];
+                                id[j] = swaptmp;
+                                break;
+                            }
+                        }
+                    }
+                    tmp.attr("d", path)
+                })
+                .on("end", function (d) { }))
+         });
+    // Add axis title
+    tmp2.append("text")
         .style("text-anchor", "middle")
         .attr("y", -9)
         .text(function(d) { return d; })
