@@ -5,6 +5,7 @@ let data = [];
 //Read the data
 d3.csv("./iris.csv", function(csvdata){
     data = csvdata
+    console.log("hi")
     scatter_plot(data)
 })
 
@@ -44,13 +45,13 @@ function scatter_plot(){
         if(data[i][x_label] > x_max) {
             x_max = data[i][x_label]
         }
-        if(data[i][x_label] < x_min) {
+        if(data[i][x_label] < x_min && data[i][x_label] != 0)  {
             x_min = data[i][x_label]
         }
         if(data[i][y_label] > y_max) {
             y_max = data[i][y_label]
         }
-        if(data[i][y_label] < y_min) {
+        if(data[i][y_label] < y_min && data[i][y_label] != 0) {
             y_min = data[i][y_label]
         }
     }
