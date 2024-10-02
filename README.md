@@ -6,6 +6,7 @@
 - [HW1: Scatter Plots](https://chueating1005.github.io/Data-Visualization/Homeworks/HW1/111550093)
 - [HW2: Parallel Coordinate Plots](https://chueating1005.github.io/Data-Visualization/Homeworks/HW2/111550093)
 - [HW3: Correlation Matrix](https://chueating1005.github.io/Data-Visualization/Homeworks/HW3/111550093)
+- [HW4: Brushable Scatter Plot Matrix](https://chueating1005.github.io/Data-Visualization/Homeworks/HW4/111550093)
 
 ## Reference
 - [D3.js Document](https://d3js.org/)
