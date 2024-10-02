@@ -17,7 +17,7 @@ var raddius = d3.scaleOrdinal()
     .domain(["Iris-setosa", "Iris-versicolor", "Iris-virginica"])
     .range([4.5, 4.5, 4.5]);
 
-d3.csv("http://vis.lab.djosix.com:2024/data/iris.csv", function(error, csvdata) {
+d3.csv("./iris.csv", function(error, csvdata) {
     csvdata = csvdata.filter(function(d) {
         return d["sepal length"] && d["sepal width"] && d["petal length"] && d["petal width"] && d.class;
     });
