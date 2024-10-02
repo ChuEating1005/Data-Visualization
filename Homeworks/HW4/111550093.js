@@ -1,5 +1,5 @@
 // Global variables
-var margin = {top: 30, right: 50, bottom: 50, left: 60},
+var margin = {top: 30, right: 50, bottom: 100, left: 60},
     width = 1000 - margin.left - margin.right,
     height = 1000 - margin.top - margin.bottom,
     cellwidth = width / 5, cellheight = height / 5,
@@ -17,7 +17,7 @@ var raddius = d3.scaleOrdinal()
     .domain(["Iris-setosa", "Iris-versicolor", "Iris-virginica"])
     .range([4.5, 4.5, 4.5]);
 
-d3.csv("./iris.csv", function(error, csvdata) {
+d3.csv("http://vis.lab.djosix.com:2024/data/iris.csv", function(error, csvdata) {
     csvdata = csvdata.filter(function(d) {
         return d["sepal length"] && d["sepal width"] && d["petal length"] && d["petal width"] && d.class;
     });
@@ -44,6 +44,47 @@ d3.csv("./iris.csv", function(error, csvdata) {
         .property("value", []);
 
     matrix_plot(svg);
+
+    // Add legend
+    // Setosa
+    svg.append("circle")
+        .attr("cx", width / 2 - 150)
+        .attr("cy", height + margin.top + 45)
+        .attr("r", 5)
+        .style("fill", "#e63946")
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2 - 115)
+        .attr("y", height + margin.top + 50)
+        .text("Setosa")
+        .style("fill", "#e63946")
+        .style("font-size", "20px")
+    // Versicolor
+    svg.append("circle")
+        .attr("cx", width / 2 - 50)
+        .attr("cy", height + margin.top + 45)
+        .attr("r", 6)
+        .style("fill", "#588157")
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2)
+        .attr("y", height + margin.top + 50)
+        .text("Versicolor")
+        .style("fill", "#588157")
+        .style("font-size", "20px")
+    // Virginica
+    svg.append("circle")
+        .attr("cx", width / 2 + 70)
+        .attr("cy", height + margin.top + 45)
+        .attr("r", 7)
+        .style("fill", "#457b9d")
+    svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2 + 115)
+        .attr("y", height + margin.top + 50)
+        .text("Virginica")
+        .style("fill", "#457b9d")
+        .style("font-size", "20px")
 });
 
 
