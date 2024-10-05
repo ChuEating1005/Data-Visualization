@@ -1,0 +1,59 @@
+body {
+    text-align: center;
+}
+
+nav{
+    font-size: 40px;
+    padding: 20px;
+    background-color: #d2eae7;
+}
+
+p{
+    font-size: 20px;
+    background-color: rgba(255, 235, 109, 0.576);
+    margin-left: 250px;
+    margin-right: 250px;
+    padding: 10px;
+}
+
+#my_dataviz{
+    padding: 30px;
+}
+
+.grid-containter1{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 100px;
+    column-gap: 30px;
+    padding-bottom: 100px;
+}
+
+footer{
+    display: grid;
+    bottom: 0;
+    padding: 30px;
+    border-top: 1.5px solid #babcbf;
+    color: gray;
+    font-size: 15px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 20px;
+}
+
+.box1{
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.box2{
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+.box3{
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
+#sort {
+    padding-top: 20px
+}
