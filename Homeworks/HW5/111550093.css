@@ -16,8 +16,19 @@ p{
     padding: 10px;
 }
 
-#my_dataviz{
-    padding: 30px;
+h3{
+    text-align: left;
+    padding-left: 60px;
+}
+
+a {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+a:hover {
+    color: rgb(78, 126, 203);
+    text-decoration: none;
 }
 
 .grid-containter1{

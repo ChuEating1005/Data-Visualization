@@ -15,20 +15,23 @@
          <!-- Sort by -->
         <label for="sort-by">Sort by: </label>
         <select id="sort-by">
-            <option value="scores_overall" selected>overall</option>
-            <option value="scores_teaching">teaching</option>
-            <option value="scores_research">research</option>
-            <option value="scores_citations">citations</option>
-            <option value="scores_industry_income">industry income</option>
-            <option value="scores_international_outlook">international outlook</option>
+            <option value="scores_overall" selected>Overall</option>
+            <option value="scores_teaching">Teaching</option>
+            <option value="scores_research">Research</option>
+            <option value="scores_citations">Citations</option>
+            <option value="scores_industry_income">Industry income</option>
+            <option value="scores_international_outlook">International outlook</option>
         </select>
         <!-- Sort order -->
         <label for="sort-order">Sort order: </label>
         <select id="sort-order">
-            <option value="ascending" selected>ascending</option>
-            <option value="descending">descending</option>
+            <option value="descending" selected>Descending</option>
+            <option value="ascending">Ascending</option>
         </select>
+        <label for="top-n">Show Top-N: </label>
+        <input type="number" id="top-n" value="2674" min="1" max="2674">
     </div>
+    <a href="https://www.kaggle.com/datasets/ddosad/timesworlduniversityrankings2024"><h3>Times World University Rankings 2024</h3></a>
     <div id="my_dataviz"></div>
     <footer>
         <div class="box1">Author: 朱驛庭</div>
