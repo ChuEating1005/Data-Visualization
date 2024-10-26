@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="./111550093.js"></script>
+    <link rel="stylesheet" href="./111550093.css">
+</head>
+<body>
+    <title>HW 7 - Horizon Charts</title>
+    <nav>HW 7 - Horizon Charts</nav>
+    <fieldset id="pollutant">
+        <legend>Select pollutant</legend>
+        <input type="radio" id="SO2" name="pollutant" value="SO2" checked />
+        <label for="SO2">SO2</label>
+        <input type="radio" id="NO2" name="pollutant" value="NO2" />
+        <label for="NO2">NO2</label>
+        <input type="radio" id="O3" name="pollutant" value="O3" />
+        <label for="O3">O3</label>
+        <input type="radio" id="CO" name="pollutant" value="CO" />
+        <label for="CO">CO</label>
+        <input type="radio" id="PM10" name="pollutant" value="PM10" />
+        <label for="PM10">PM10</label>
+        <input type="radio" id="PM2.5" name="pollutant" value="PM2.5" />
+        <label for="PM2.5">PM2.5</label>
+    </fieldset>
+    <div class="dataviz-container">
+        <p id="loading" style="font-size: 22px; margin-top: 200px;">loading...</p>
+        <div id="my_dataviz"></div>
+    </div>
+    <button class="info-button" onclick="openModal()">?</button>
+
+    <!-- 彈出框 -->
+    <div class="modal-background" id="modalBackground">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Air Pollution in Seoul 2017-2019</h2>
+                <button class="close-button" onclick="closeModal()">&times;</button>
+            </div>
+            <hr class="divider"> 
+            <div class="modal-body">
+                <p>The <a href="https://www.kaggle.com/datasets/bappekim/air-pollution-in-seoul">Air Pollution in Seoul</a> dataset provides average values for six pollutants (SO2, NO2, CO, O3, PM10, PM2.5).</p>
+                <ul style="padding-bottom: 20px;">
+                    <li>Data were measured for 25 districts in Seoul.</li>
+                    <li>Data were measured every hour during 2017-2019.</li>
+                    <li>The visualization aggregated hourly data into daily summaries by mean.</li>
+                </ul>
+                <h4>What does the color mean?</h4>
+                <p style="padding-bottom: 25px;">The colors of each air pollutant are determined by the <a href="https://data.seoul.go.kr/dataList/OA-15515/S/1/datasetView.do">Information on Seoul City air pollution measurement items
+                </a>, below is the definition of each color.</p>
+                <ul>
+                    <li><span style="color: #24779d;">Blue</span> means the air quality is good.</li>
+                    <li><span style="color: #60b428;">Green</span> means normal air quality.</li>
+                    <li><span style="color: #c7bd34;">Yellow</span> means bad air quality.</li>
+                    <li><span style="color: #FF3800;">Red</span> means very bad air quality.</li>
+                </ul>
+            </div>
+            <hr class="divider"> 
+            <div  style="text-align: center; margin-top: 20px;">
+                <button class="close-button2" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="box1">Author: 朱驛庭</div>
+        <div class="box2">Student ID: 111550093</div>
+        <div class="box3">Date: 2024/10/21</div>
+    </footer>
+</body>
+</html>
