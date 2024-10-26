@@ -41,7 +41,7 @@ const margin = { top: 20, right: 70, bottom: 30, left: 100 };
             const height = 150 - margin.top - margin.bottom;
 
 // Example CSV parsing using d3-dsv
-d3.csv("http://vis.lab.djosix.com:2024/data/air-pollution.csv").then(data => {
+d3.csv("./air-pollution.csv").then(data => {
     // Show loading text
     // Data Preparation: Aggregate hourly data into daily summaries
     function aggregateData(data) {
