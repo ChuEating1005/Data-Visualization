@@ -10,6 +10,7 @@
 - [HW5: Stacked Bar Charts](https://chueating1005.github.io/Data-Visualization/Homeworks/HW5/111550093)
 - [HW6: ThemeRiver](https://chueating1005.github.io/Data-Visualization/Homeworks/HW6/111550093)
 - [HW7: Horizon Charts](https://chueating1005.github.io/Data-Visualization/Homeworks/HW7/111550093)
+- [HW8: Sankey Diagram](https://chueating1005.github.io/Data-Visualization/Homeworks/HW8/111550093)
 
 ## Reference
 - [D3.js Document](https://d3js.org/)
